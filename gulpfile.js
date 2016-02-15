@@ -14,13 +14,13 @@ var connect = require('gulp-connect');
 var config = {
     paths: {
         html: '',
-        jsSource: './Content/js/src/main.js',
-        jsDestination: './Content/js',
+        jsSource: './content/js/src/main.js',
+        jsDestination: './content/js',
 
         lessSource: [
-            './node_modules/bootstrap-less/bootstrap/bootstrap.less',
+            //'./node_modules/bootstrap-less/bootstrap/bootstrap.less',
             './node_modules/toastr/toastr.less'],
-        cssDestination: './Content/css'
+        cssDestination: './content/css'
     }
 }
 
