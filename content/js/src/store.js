@@ -8,7 +8,7 @@ import { createStore } from 'redux';
 
 
 const initialState = {
-    //authors: []
+    hangmanState: 0
 };
 
 export let appStore = function(state, action) {

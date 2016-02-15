@@ -1,7 +1,9 @@
 'use strict';
 
 import React from 'react';
-import keydown from 'react-keydown'; 
+import { connect } from 'react-redux';
+import keydown from 'react-keydown';
+import Hangman from './hangman'; 
 
 class Board extends React.Component{
     
@@ -14,10 +16,11 @@ class Board extends React.Component{
     render() {
         return (           
             <div>
-                <h1 >board</h1>
+                <h1>board</h1>
+                <Hangman state={ this.props.hangmanState } /> 
             </div>
         );
     }
 }
 
-export default keydown( Board ); 
+export default connect(x => x)(keydown(Board));
