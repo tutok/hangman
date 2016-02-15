@@ -3,12 +3,12 @@
 import React from 'react';
 import { Router, Route, IndexRoute, Link, Redirect } from 'react-router';
 import App from './components/app';
-import HomePage from './components/home/homePage';
+import BoardPage from './components/board/boardPage';
 
 
 let Routes = (
     <Route path="/" component={ App } >
-        <IndexRoute component={ HomePage } /> 
+        <IndexRoute component={ BoardPage } /> 
     </Route>
 );
 
