@@ -7,7 +7,6 @@ class App extends React.Component{
     render() {
         return (
             <div>
-                <p>hangman</p>
                { this.props.children }
             </div>
         );
