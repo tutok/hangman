@@ -2,9 +2,11 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
+import { characterMissed, characterGuessed } from '../../actions';
 import Hangman from './hangman'; 
 import MissedCharacters from './missedCharacters';
-import { characterMissed, characterGuessed } from '../../actions';
+import GuesWord from './guessWord';
+
 
 class Board extends React.Component{
     
@@ -48,7 +50,9 @@ class Board extends React.Component{
             <div style={ style }>
                 <h1>board</h1>
                 <MissedCharacters characters={ this.props.missedCharacters }/>
-                <Hangman state={ this.props.hangmanState } /> 
+                <Hangman state={ this.props.hangmanState } />
+                
+                <GuesWord word={ this.props.word } guessedCharacters={ this.props.guessedCharacters } /> 
             </div>
         );
     }
