@@ -1,6 +1,6 @@
 'use strict';
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 class MissedCharacters extends React.Component{
    
@@ -15,5 +15,9 @@ class MissedCharacters extends React.Component{
         );
     }
 }
+
+MissedCharacters.propTypes = {
+    characters: PropTypes.array.isRequired,
+};
 
 export default MissedCharacters; 

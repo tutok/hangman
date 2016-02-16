@@ -1,11 +1,10 @@
 'use strict';
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 class GuessWord extends React.Component{
      
     render() {
-        
         let wordTable = [];
         for(let char of this.props.word){
             if (this.props.guessedCharacters.some(x => x === char)){
@@ -24,5 +23,10 @@ class GuessWord extends React.Component{
         );
     }
 }
+
+GuessWord.propTypes = {
+    guessedCharacters: PropTypes.array.isRequired,
+    word: PropTypes.string.isRequired,
+};
 
 export default GuessWord; 

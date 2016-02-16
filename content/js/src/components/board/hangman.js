@@ -1,6 +1,6 @@
 'use strict';
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 class Hangman extends React.Component{
    
@@ -13,5 +13,9 @@ class Hangman extends React.Component{
         );
     }
 }
+
+Hangman.propTypes = {
+    state: PropTypes.number.isRequired,
+};
 
 export default Hangman; 
