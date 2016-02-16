@@ -6,31 +6,21 @@ export const actionTypes = {
     CHARACTER_GUESSED: 'CHARACTER_GUESSED',
 };
 
-// export function checkCharacter(character) {
-//     let newAuthor = AuthorsApi.saveAuthor(author);
-// 
-//     return {
-//         type: actionTypes.CHECK_CHARACTER,
-//         payload: {
-//             character: character
-//         }
-//     };
-// };
-
-export function characterMissed(author) {
+export function characterMissed(character, hangmanNewState) {
     return {
         type: actionTypes.CHARACTER_MISSED,
         payload: {
-            character: character
+            character,
+            hangmanNewState
         }
     };
 };
 
-export function characterGuessed(id) {
+export function characterGuessed(character) {
     return {
         type: actionTypes.CHARACTER_GUESSED,
         payload: {
-            character: character
+            character
         }
     };
 };
