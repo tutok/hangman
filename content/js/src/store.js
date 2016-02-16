@@ -8,7 +8,7 @@ import { createStore } from 'redux';
 
 
 const initialState = {
-    word: 'MARCIN',
+    word: 'marcin',
     guessedCharacters: [],
     missedCharacters: [],
     hangmanState: 0,

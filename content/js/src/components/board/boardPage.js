@@ -3,35 +3,32 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Hangman from './hangman'; 
+import MissedCharacters from './missedCharacters';
 import { characterMissed, characterGuessed } from '../../actions';
 
 class Board extends React.Component{
     
     componentDidMount(){
-        debugger
         document.body.addEventListener("keydown", this.handleOnKeydown.bind(this));
     }
 
     componentWillUnmount() {
-        debugger
         document.body.removeEventListener("keydown", this.handleOnKeydown.bind(this));
     }
     
     handleOnKeydown(event) {
-       console.log(event);
-       
-        if (!event) {
-            return;
-        }
-        
         let character = String.fromCharCode(event.keyCode);
         if (!character){
             return;
         } 
         
-        debugger
+        character = character.toLowerCase();
+        if (!character.match(/[a-z]/i) || this.props.missedCharacters.some(x=> x == character))
+        {
+            return;
+        }
         
-        if (this.props.word.includes(character)){
+        if (this.props.word.includes(character)) {
             this.props.dispatch(characterGuessed(character));
         } else {
             this.props.dispatch(characterMissed(character, this.props.hangmanState + 1));
@@ -50,6 +47,7 @@ class Board extends React.Component{
         return (           
             <div style={ style }>
                 <h1>board</h1>
+                <MissedCharacters characters={ this.props.missedCharacters }/>
                 <Hangman state={ this.props.hangmanState } /> 
             </div>
         );
