@@ -16,8 +16,6 @@ const initialState = {
 
 export let appStore = function(state, action) {
 
-    debugger;
-
     if (typeof state === 'undefined') {
         return initialState;
     }

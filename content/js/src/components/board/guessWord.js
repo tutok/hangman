@@ -1,11 +1,13 @@
 'use strict';
 
 import React, { PropTypes } from 'react';
+import { MAX_WORD_LENGTH } from '../../appSettings';
 
 class GuessWord extends React.Component{
      
     render() {
-        let wordTable = [];
+        let leftOffset = MAX_WORD_LENGTH - this.props.word.length;
+        let wordTable = Array.from(new Array(leftOffset), () => '_' );
         for(let char of this.props.word){
             if (this.props.guessedCharacters.some(x => x === char)){
                 wordTable.push(char);
@@ -17,7 +19,7 @@ class GuessWord extends React.Component{
         return (           
             <div>
                 <p>
-                    {wordTable.map((x, i) => (<span key={i}> { x } </span>), this)}
+                    {wordTable.map((x, i) => (<span className={ i < leftOffset ? 'offset' : ''} key={i}> { x } </span>), this)}
                 </p>
             </div>
         );
