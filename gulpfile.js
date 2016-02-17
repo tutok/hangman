@@ -14,13 +14,11 @@ var connect = require('gulp-connect');
 var config = {
     paths: {
         html: '',
-        jsSource: './content/js/src/main.js',
-        jsDestination: './content/js',
+        jsSource: './app/js/src/main.js',
+        jsDestination: './app/js',
 
-        lessSource: [
-            //'./node_modules/bootstrap-less/bootstrap/bootstrap.less',
-            './node_modules/toastr/toastr.less'],
-        cssDestination: './content/css'
+        lessSource: './app/css/less/main.less',
+        cssDestination: './app/css'
     }
 }
 
@@ -73,7 +71,7 @@ gulp.task('eslint', function() {
 });
 
 gulp.task('watch', function () {
-    gulp.watch(['./Content/js/src/**/*.js', './Content/js/src/**/*.jsx'], ['js', /*'eslint'*/]);
+    gulp.watch(['./app/js/src/**/*.js'], ['js', /*'eslint'*/]);
 });
 
 gulp.task('build', ['js', /*'eslint',*/ 'css']);
