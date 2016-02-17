@@ -41,11 +41,17 @@ class Board extends React.Component{
         return (           
             <div className="container hangman-board">
                 <div className="row"> 
-                    <div className="column-one-third"><Hangman state={ this.props.hangmanState } /></div>
-                    <div className="column-two-third"><MissedCharacters characters={ this.props.missedCharacters }/></div>
+                    <div className="column-one-third">
+                        <Hangman state={ this.props.hangmanState } />
+                    </div>
+                    <div className="column-two-third">
+                        <MissedCharacters characters={ this.props.missedCharacters }/>
+                    </div>
                 </div>
                 <div className="row"> 
-                    <div className="column-whole"><GuesWord word={ this.props.word } guessedCharacters={ this.props.guessedCharacters } /></div>
+                    <div className="column-whole">
+                        <GuesWord word={ this.props.word } guessedCharacters={ this.props.guessedCharacters } />
+                    </div>
                 </div> 
             </div>
         );

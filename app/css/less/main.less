@@ -1,6 +1,7 @@
 
 @brand-primary: #4D69FA;
 @brand-light: #F5F5F5;
+@brand-medium-light: #E6E6E7;
 @brand-dark: #53555D;
 @background-color: #3B4163;
 
@@ -28,11 +29,9 @@ body {
     background-color: @background-color;
 }
 
-
-
-
 .hangman-board{
     width: (920px);
+    text-transform: uppercase;
     margin-top: 145px;
     margin-left: auto;
     margin-right: auto;
@@ -42,16 +41,43 @@ body {
 }
 
 .hangman-body{
-    display: block;
-    float: left;
+
 }
 
 .missed-characters{
-    display: block;
     float: right;
 }
 
 .guess-word{
-    display: block;
-    clear: both;
+    color: @brand-light;
+    font-size: 45px;
+
+    .slot(){
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 80px;
+        width: 70px;
+        height: 80px;
+        margin-right: 6px;
+        .rounded(5px);
+        
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+    
+    & .offset-slot{
+        .slot;
+        background-color: @brand-medium-light;
+    }
+    
+    & .active-slot{
+        .slot;
+        background-color: @brand-dark;
+    }
+    
+    & p{
+      margin: 0;  
+    }
 }
