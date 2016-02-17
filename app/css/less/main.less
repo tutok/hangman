@@ -21,12 +21,83 @@ body {
     margin-left: auto;
     margin-right: auto;
     padding: @margin;
-    .rounded(@round4px);
+    .rounded(@round);
     background-color: @brand-light;
 }
 
 .hangman-body{
-
+    margin-left: -@margin;
+    margin-top: 2px;
+    height: 365px;
+    width: 200px;
+    position: relative;
+    
+    .body-part(@image-name, @width, @height, @left, @top){
+        z-index: 100;
+        display: inline-block;
+        width: @width;
+        height: @height;
+        position: absolute;
+        left: @left;
+        top: @top;     
+        background-image: url("../content/images/@{image-name}");
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: @width @height;
+    }
+    
+    .hangman-bar {
+        .body-part("bar.png", 253px, 43px, -117px, 0px);
+    }
+    
+    .hangman-head { 
+        .body-part("head.png", 109px, 120px, 57px, 39px);
+    }
+    
+    .hangman-neck { 
+        .body-part("neck.png", 26px, 38px, 98px, 143px);
+        z-index: 99;
+    }
+     
+    .hangman-corpus{ 
+        .body-part("corpus.png", 60px, 93px, 82px, 169px);
+    }
+    
+    .hangman-right-arm{
+        .body-part("right-arm.png", 72px, 70px, 119px, 169px);
+    }
+    
+    .hangman-left-arm{
+        .body-part("left-arm.png", 72px, 70px, 35px, 169px);
+    }
+    
+    .hangman-right-hand{ 
+        .body-part("right-hand.png", 17px, 17px, 177px, 226px);
+        z-index: 99;
+    }
+    
+    .hangman-left-hand{ 
+        .body-part("left-hand.png", 17px, 17px, 33px, 226px);
+        z-index: 99;
+    }
+    
+    .hangman-right-leg{
+        .body-part("right-leg.png", 47px, 101px, 114px, 251px);
+    }
+    
+    .hangman-left-leg{
+        .body-part("left-leg.png", 47px, 101px, 64px, 251px);
+    }
+    
+    .hangman-right-foot{
+        .body-part("right-foot.png", 48px, 20px, 134px, 340px);
+        z-index: 99;
+    }
+    
+    .hangman-left-foot{
+        .body-part("left-foot.png", 48px, 20px, 41px, 340px);
+        z-index: 99;
+    }
 }
 
 .missed-characters{
@@ -36,7 +107,8 @@ body {
 .guess-word{
     color: @brand-light;
     font-size: 45px;
-
+    margin-top: 30px;
+    
     .slot(){
         display: inline-block;
         text-align: center;

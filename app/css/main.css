@@ -66,10 +66,178 @@ body {
   margin-left: auto;
   margin-right: auto;
   padding: 40px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
   background-color: #F5F5F5;
+}
+.hangman-body {
+  margin-left: -40px;
+  margin-top: 2px;
+  height: 365px;
+  width: 200px;
+  position: relative;
+}
+.hangman-body .hangman-bar {
+  z-index: 100;
+  display: inline-block;
+  width: 253px;
+  height: 43px;
+  position: absolute;
+  left: -117px;
+  top: 0px;
+  background-image: url("../content/images/bar.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 253px 43px;
+}
+.hangman-body .hangman-head {
+  z-index: 100;
+  display: inline-block;
+  width: 109px;
+  height: 120px;
+  position: absolute;
+  left: 57px;
+  top: 39px;
+  background-image: url("../content/images/head.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 109px 120px;
+}
+.hangman-body .hangman-neck {
+  z-index: 100;
+  display: inline-block;
+  width: 26px;
+  height: 38px;
+  position: absolute;
+  left: 98px;
+  top: 143px;
+  background-image: url("../content/images/neck.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 26px 38px;
+  z-index: 99;
+}
+.hangman-body .hangman-corpus {
+  z-index: 100;
+  display: inline-block;
+  width: 60px;
+  height: 93px;
+  position: absolute;
+  left: 82px;
+  top: 169px;
+  background-image: url("../content/images/corpus.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 60px 93px;
+}
+.hangman-body .hangman-right-arm {
+  z-index: 100;
+  display: inline-block;
+  width: 72px;
+  height: 70px;
+  position: absolute;
+  left: 119px;
+  top: 169px;
+  background-image: url("../content/images/right-arm.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 72px 70px;
+}
+.hangman-body .hangman-left-arm {
+  z-index: 100;
+  display: inline-block;
+  width: 72px;
+  height: 70px;
+  position: absolute;
+  left: 35px;
+  top: 169px;
+  background-image: url("../content/images/left-arm.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 72px 70px;
+}
+.hangman-body .hangman-right-hand {
+  z-index: 100;
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  left: 177px;
+  top: 226px;
+  background-image: url("../content/images/right-hand.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 17px 17px;
+  z-index: 99;
+}
+.hangman-body .hangman-left-hand {
+  z-index: 100;
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  left: 33px;
+  top: 226px;
+  background-image: url("../content/images/left-hand.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 17px 17px;
+  z-index: 99;
+}
+.hangman-body .hangman-right-leg {
+  z-index: 100;
+  display: inline-block;
+  width: 47px;
+  height: 101px;
+  position: absolute;
+  left: 114px;
+  top: 251px;
+  background-image: url("../content/images/right-leg.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 47px 101px;
+}
+.hangman-body .hangman-left-leg {
+  z-index: 100;
+  display: inline-block;
+  width: 47px;
+  height: 101px;
+  position: absolute;
+  left: 64px;
+  top: 251px;
+  background-image: url("../content/images/left-leg.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 47px 101px;
+}
+.hangman-body .hangman-right-foot {
+  z-index: 100;
+  display: inline-block;
+  width: 48px;
+  height: 20px;
+  position: absolute;
+  left: 134px;
+  top: 340px;
+  background-image: url("../content/images/right-foot.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 48px 20px;
+  z-index: 99;
+}
+.hangman-body .hangman-left-foot {
+  z-index: 100;
+  display: inline-block;
+  width: 48px;
+  height: 20px;
+  position: absolute;
+  left: 41px;
+  top: 340px;
+  background-image: url("../content/images/left-foot.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 48px 20px;
+  z-index: 99;
 }
 .missed-characters {
   float: right;
@@ -77,6 +245,7 @@ body {
 .guess-word {
   color: #F5F5F5;
   font-size: 45px;
+  margin-top: 30px;
 }
 .guess-word .offset-slot {
   display: inline-block;
