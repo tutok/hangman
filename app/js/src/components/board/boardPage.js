@@ -37,22 +37,16 @@ class Board extends React.Component{
         }
     }
     
-    render() {
-        //onKeydown={ this.handleOnKeydown } onClick={ this.handleOnKeydown }
-        
-        let style = {
-            width: '300px',
-            height: '300px',
-            backgroundColor: 'blue'
-        }
-        
+    render() {       
         return (           
-            <div style={ style }>
-                <h1>board</h1>
-                <MissedCharacters characters={ this.props.missedCharacters }/>
-                <Hangman state={ this.props.hangmanState } />
-                
-                <GuesWord word={ this.props.word } guessedCharacters={ this.props.guessedCharacters } /> 
+            <div className="container hangman-board">
+                <div className="row"> 
+                    <div className="column-one-third"><Hangman state={ this.props.hangmanState } /></div>
+                    <div className="column-two-third"><MissedCharacters characters={ this.props.missedCharacters }/></div>
+                </div>
+                <div className="row"> 
+                    <div className="column-whole"><GuesWord word={ this.props.word } guessedCharacters={ this.props.guessedCharacters } /></div>
+                </div> 
             </div>
         );
     }

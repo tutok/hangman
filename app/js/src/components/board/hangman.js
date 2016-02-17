@@ -7,7 +7,7 @@ class Hangman extends React.Component{
     render() {
         let className = `hangmanState${this.props.state }`;
         return (           
-            <div className="{className}">
+            <div className="hangman-body">
                 <p>hangman state: { this.props.state }</p>
             </div>
         );

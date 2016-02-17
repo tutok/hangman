@@ -17,7 +17,7 @@ class GuessWord extends React.Component{
         }
         
         return (           
-            <div>
+            <div className="gues-word">
                 <p>
                     {wordTable.map((x, i) => (<span className={ i < leftOffset ? 'offset' : ''} key={i}> { x } </span>), this)}
                 </p>
