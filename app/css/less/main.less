@@ -1,22 +1,7 @@
-
-@brand-primary: #4D69FA;
-@brand-light: #F5F5F5;
-@brand-medium-light: #E6E6E7;
-@brand-dark: #53555D;
-@background-color: #3B4163;
-
-@margin: 40px;
-
-@font-face {
-    font-family: 'AllerDisplay';
-    src: url('../content/fonts/AllerDisplay.ttf') format('truetype');
-    font-weight: normal;
-}
-
+@import '_variables';
 @import '_elements';
 @import '_perfect-pixel-workaround';
 @import '_grid';
-
 
 
 * {
@@ -36,7 +21,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     padding: @margin;
-    .rounded(4px);
+    .rounded(@round4px);
     background-color: @brand-light;
 }
 
@@ -60,7 +45,7 @@ body {
         width: 70px;
         height: 80px;
         margin-right: 6px;
-        .rounded(5px);
+        .rounded(@round);
         
         &:last-child{
             margin-right: 0;
