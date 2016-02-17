@@ -1,4 +1,5 @@
 'use strict';
+import fetch from 'isomorphic-fetch';
 
 export const actionTypes = {
     //CHECK_CHARACTER: 'CHECK_CHARACTER',

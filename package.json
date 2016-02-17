@@ -2,7 +2,9 @@
   "name": "hangman",
   "version": "1.0.0",
   "dependencies": {
+    "babel-core": "^6.5.2",
     "babel-eslint": "*",
+    "babel-polyfill": "^6.5.0",
     "babel-preset-es2015": "*",
     "babel-preset-react": "*",
     "babel-preset-stage-2": "*",
@@ -15,6 +17,7 @@
     "gulp-less": "*",
     "gulp-open": "*",
     "history": "1.17.0",
+    "isomorphic-fetch": "^2.2.1",
     "jquery": "*",
     "lodash": "*",
     "react": "^0.14.5",
