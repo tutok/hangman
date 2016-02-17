@@ -17,7 +17,9 @@ var config = {
         jsSource: './app/js/src/main.js',
         jsDestination: './app/js',
 
-        lessSource: './app/css/less/main.less',
+        lessSource: [
+            './app/css/less/main.less',
+            './node_modules/normalize.css/normalize.css'],
         cssDestination: './app/css'
     }
 }
