@@ -1,0 +1,39 @@
+.container, .row{
+    &:before{
+        content: " ";
+        display: table;
+    }
+    &:after{
+        content: " ";
+        display: table;
+        clear: both;  
+    }
+}
+
+.column-whole{
+    position: relative;
+    float: left;
+    width: 100%;
+    min-height: 1px;
+}
+
+.column-half{
+    position: relative;
+    float: left;
+    width: 50%;
+    min-height: 1px;
+}
+
+.column-one-third{
+    position: relative;
+    float: left;
+    width: 33.33%;
+    min-height: 1px;
+}
+
+.column-two-third{
+    position: relative;
+    float: left;
+    width: 66.66%;
+    min-height: 1px;
+}
