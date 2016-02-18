@@ -1,8 +1,5 @@
 'use strict';
 
-//import { Dispatcher } from '../dispatcher/appDispatcher';
-//import { actionTypes as AuthorActionsTypes } from '../components/author/actions/actions';
-//import { EventEmitter } from 'events';
 import { actionTypes } from './actions';
 import { createStore } from 'redux';
 
@@ -14,7 +11,7 @@ const initialState = {
     hangmanState: 0,
 };
 
-export let appStore = function(state, action) {
+let reducer = function(state, action) {
 
     if (typeof state === 'undefined') {
         return initialState;
@@ -66,3 +63,6 @@ export let appStore = function(state, action) {
             return state;
     }
 }
+
+
+export let appStore = createStore(reducer);

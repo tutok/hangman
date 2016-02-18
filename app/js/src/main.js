@@ -10,11 +10,11 @@ import { Router, browserHistory } from 'react-router';
 import Routes from './routes';
 import { appStore } from './store';
 
-let store = createStore(appStore);
+
 let appRootElement = document.getElementById('app');
 
 ReactDOM.render(
-    <Provider store={ store } >
+    <Provider store={ appStore } >
         <Router history={ browserHistory }>
             {Routes}
         </Router>
