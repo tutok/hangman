@@ -54,11 +54,14 @@ body {
   margin-left: auto;
   margin-right: auto;
   padding: 40px;
+  background-color: #F5F5F5;
+  overflow: hidden;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  background-color: #F5F5F5;
-  overflow: hidden;
+  -webkit-box-shadow: 0px 0px 80px 40px #2e324a;
+  -moz-box-shadow: 0px 0px 80px 40px #2e324a;
+  box-shadow: 0px 0px 80px 40px #2e324a;
 }
 .hangman-board > .inner {
   z-index: 10;
