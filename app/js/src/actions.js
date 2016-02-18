@@ -1,5 +1,7 @@
 'use strict';
+
 import fetch from 'isomorphic-fetch';
+import wordnikClient from './wordnik/wordnikClient';
 
 export const actionTypes = {};
 
@@ -25,37 +27,18 @@ export function characterGuessed(character) {
 };
 
 
-
-
-
-
-
-
+//TODO: move to separate file
 export function fetchNewWord() {
     return dispatch => {
         dispatch(requestingNewWord());
         
-        
-        
-        let wordnikRandomEndpointUrl = 'http://api.wordnik.com:80/v4/words.json/randomWord';
-        let query = {
-            hasDictionaryDef: false,
-            minCorpusCount: 0,
-            maxCorpusCount: -1,
-            minDictionaryCount: 1,
-            maxDictionaryCount:-1,
-            minLength: 5,
-            maxLength: 11,
-            api_key: 'a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5'
-        }
-        var params = Object.keys(query)
-                        .map(x => encodeURIComponent(x) + '=' + encodeURIComponent(query[x]))
-                        .join('&')
-                        .replace(/%20/g, '+');
-                        
-    return  fetch(wordnikRandomEndpointUrl + '?' + params)        
+         wordnikClient.fetchRandomWord()       
             .then(response => response.json())
-            .then(json =>  dispatch(newWordReceived(json)));
+            .then(json =>  dispatch(newWordReceived(json)))
+            .catch(error => {
+                console.log('There has been a problem with your fetch operation: ' + error.message);
+                alert('There has been a problem with application, please try again later.');
+            });
     }
 }
 
