@@ -10,7 +10,7 @@ class Hangman extends React.Component{
     render() {
         let className = `hangmanState${this.props.state }`;
         let bodyElements = [];
-        for(let i = 0; i < this.props.state; i++){
+        for(let i = 0; i <= this.props.state; i++){
             bodyElements.push(<span key={i} className={ 'hangman-' + STATE_MAP[i] }></span>);        
         }
                 

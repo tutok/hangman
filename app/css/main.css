@@ -9,13 +9,6 @@
     A set of useful LESS mixins
     More info at: http://lesselements.com
   ---------------------------------------------------*/
-body {
-  background-image: url(../../docs/sources/hangman.png);
-  background-repeat: no-repeat;
-  background-position: center 50px;
-  opacity: 0.5;
-  background-size: 1170px;
-}
 .container:before,
 .row:before {
   content: " ";
@@ -33,22 +26,16 @@ body {
   width: 100%;
   min-height: 1px;
 }
-.column-half {
+.column-left {
   position: relative;
   float: left;
-  width: 50%;
+  width: 38%;
   min-height: 1px;
 }
-.column-one-third {
+.column-right {
   position: relative;
   float: left;
-  width: 33.33%;
-  min-height: 1px;
-}
-.column-two-third {
-  position: relative;
-  float: left;
-  width: 66.66%;
+  width: 62%;
   min-height: 1px;
 }
 * {
@@ -60,8 +47,9 @@ body {
   background-color: #3B4163;
 }
 .hangman-board {
-  width: 920px;
+  position: relative;
   text-transform: uppercase;
+  width: 920px;
   margin-top: 145px;
   margin-left: auto;
   margin-right: auto;
@@ -70,6 +58,22 @@ body {
   -moz-border-radius: 5px;
   border-radius: 5px;
   background-color: #F5F5F5;
+  overflow: hidden;
+}
+.hangman-board > .inner {
+  z-index: 10;
+  position: relative;
+}
+.hangman-board .corner-triangle {
+  z-index: 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 286px 286px;
+  border-color: transparent transparent #4D69FA transparent;
 }
 .hangman-body {
   margin-left: -40px;
@@ -240,7 +244,17 @@ body {
   z-index: 99;
 }
 .missed-characters {
-  float: right;
+  margin-left: 16px;
+}
+.missed-characters .header {
+  margin: 0;
+  letter-spacing: 1px;
+}
+.missed-characters .character-list {
+  color: #4D69FA;
+  font-size: 52px;
+  margin: 0px;
+  letter-spacing: 11px;
 }
 .guess-word {
   color: #F5F5F5;

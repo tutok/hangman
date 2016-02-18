@@ -1,6 +1,6 @@
 @import '_variables';
 @import '_elements';
-@import '_perfect-pixel-workaround';
+//@import '_perfect-pixel-workaround';
 @import '_grid';
 
 
@@ -14,18 +14,37 @@ body {
     background-color: @background-color;
 }
 
-.hangman-board{
-    width: (920px);
+.hangman-board {
+    position: relative;
     text-transform: uppercase;
+    width: (920px);
     margin-top: 145px;
     margin-left: auto;
     margin-right: auto;
     padding: @margin;
     .rounded(@round);
     background-color: @brand-light;
+    overflow: hidden;
+    
+    &>.inner {
+        z-index: 10;
+        position: relative;
+    }
+    
+    .corner-triangle {
+        z-index: 0;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 0 286px 286px;
+        border-color: transparent transparent @brand-primary transparent;
+    }
 }
 
-.hangman-body{
+.hangman-body {
     margin-left: -@margin;
     margin-top: 2px;
     height: 365px;
@@ -59,57 +78,67 @@ body {
         z-index: 99;
     }
      
-    .hangman-corpus{ 
+    .hangman-corpus { 
         .body-part("corpus.png", 60px, 93px, 82px, 169px);
     }
     
-    .hangman-right-arm{
+    .hangman-right-arm {
         .body-part("right-arm.png", 72px, 70px, 119px, 169px);
     }
     
-    .hangman-left-arm{
+    .hangman-left-arm {
         .body-part("left-arm.png", 72px, 70px, 35px, 169px);
     }
     
-    .hangman-right-hand{ 
+    .hangman-right-hand { 
         .body-part("right-hand.png", 17px, 17px, 177px, 226px);
         z-index: 99;
     }
     
-    .hangman-left-hand{ 
+    .hangman-left-hand { 
         .body-part("left-hand.png", 17px, 17px, 33px, 226px);
         z-index: 99;
     }
     
-    .hangman-right-leg{
+    .hangman-right-leg {
         .body-part("right-leg.png", 47px, 101px, 114px, 251px);
     }
     
-    .hangman-left-leg{
+    .hangman-left-leg {
         .body-part("left-leg.png", 47px, 101px, 64px, 251px);
     }
     
-    .hangman-right-foot{
+    .hangman-right-foot {
         .body-part("right-foot.png", 48px, 20px, 134px, 340px);
         z-index: 99;
     }
     
-    .hangman-left-foot{
+    .hangman-left-foot {
         .body-part("left-foot.png", 48px, 20px, 41px, 340px);
         z-index: 99;
     }
 }
 
-.missed-characters{
-    float: right;
+.missed-characters {
+    margin-left: 16px;
+    .header{
+        margin: 0;
+        letter-spacing: 1px;
+    }
+    .character-list {
+        color: @brand-primary;
+        font-size: 52px;
+        margin: 0px;
+        letter-spacing: 11px;
+    }
 }
 
-.guess-word{
+.guess-word {
     color: @brand-light;
     font-size: 45px;
     margin-top: 30px;
     
-    .slot(){
+    .slot() {
         display: inline-block;
         text-align: center;
         vertical-align: middle;
@@ -119,17 +148,17 @@ body {
         margin-right: 6px;
         .rounded(@round);
         
-        &:last-child{
+        &:last-child {
             margin-right: 0;
         }
     }
     
-    & .offset-slot{
+    & .offset-slot {
         .slot;
         background-color: @brand-medium-light;
     }
     
-    & .active-slot{
+    & .active-slot {
         .slot;
         background-color: @brand-dark;
     }
