@@ -47,6 +47,6 @@ let reducer = function(state, action) {
     }
 }
 
-export var store = createStore(reducer, applyMiddleware(
-                        thunkMiddleware,
-                        createLogger));
+let middleWeare = applyMiddleware(thunkMiddleware);
+
+export var store = createStore(reducer, middleWeare);

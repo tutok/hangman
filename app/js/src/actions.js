@@ -54,14 +54,8 @@ export function fetchNewWord() {
                         .replace(/%20/g, '+');
                         
     return  fetch(wordnikRandomEndpointUrl + '?' + params)        
-            .then(function(response) {
-                debugger;
-                return response.json();
-            })
-            .then(function(json) {
-                debugger;
-                dispatch(newWordReceived(json))
-            });
+            .then(response => response.json())
+            .then(json =>  dispatch(newWordReceived(json)));
     }
 }
 
@@ -73,11 +67,14 @@ function requestingNewWord() {
 }
 
 actionTypes.NEW_WORD_RECEIVED = 'NEW_WORD_RECEIVED';
-function newWordReceived(wordnikJsonResponse) {  
+function newWordReceived(wordnikJsonResponse) {
+    let word = wordnikJsonResponse.word;
+    console.log(word);
+      
     return {
         type: actionTypes.NEW_WORD_RECEIVED,
         payload: {
-            word: wordnikJsonResponse.word
+            word: word
         }
     }
 }
