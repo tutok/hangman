@@ -9,10 +9,10 @@ const initialState = {
     guessedCharacters: [],
     missedCharacters: [],
     hangmanState: 0,
+    gameNumber: 0
 };
 
 let reducer = function(state, action) {
-
     if (typeof state === 'undefined') {
         return initialState;
     }
@@ -28,19 +28,26 @@ let reducer = function(state, action) {
             
         case actionTypes.CHARACTER_MISSED:
             return Object.assign({}, state, {
-                hangmanState: action.payload.hangmanNewState, 
+                hangmanState: action.payload.hangmanState,
                 missedCharacters: [
                     ...state.missedCharacters,
                     action.payload.character
                 ]
             });
             
-            
-            
         case actionTypes.NEW_WORD_RECEIVED:
             return Object.assign({}, state, {
                 word: action.payload.word, 
-            }); 
+            });
+            
+        case actionTypes.GAME_OVER:
+            return Object.assign({}, state, {
+                word: '',
+                guessedCharacters: [],
+                missedCharacters: [],
+                hangmanState: 0,
+                gameNumber: action.payload.gameNumber
+            });
 
         default:
             return state;

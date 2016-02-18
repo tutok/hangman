@@ -29,11 +29,11 @@ class Board extends React.Component{
         {
             return;
         }
-        
+
         if (this.props.word.includes(character)) {
             this.props.dispatch(characterGuessed(character));
         } else {
-            this.props.dispatch(characterMissed(character, this.props.hangmanState + 1));
+            this.props.dispatch(characterMissed(character, this.props.hangmanState));
         }
     }
     

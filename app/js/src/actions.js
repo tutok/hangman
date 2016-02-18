@@ -5,17 +5,6 @@ import wordnikClient from './wordnik/wordnikClient';
 
 export const actionTypes = {};
 
-actionTypes.CHARACTER_MISSED = 'CHARACTER_MISSED';
-export function characterMissed(character, hangmanNewState) {
-    return {
-        type: actionTypes.CHARACTER_MISSED,
-        payload: {
-            character,
-            hangmanNewState
-        }
-    };
-};
-
 actionTypes.CHARACTER_GUESSED = 'CHARACTER_GUESSED';
 export function characterGuessed(character) {
     return {
@@ -25,6 +14,38 @@ export function characterGuessed(character) {
         }
     };
 };
+
+actionTypes.CHARACTER_MISSED = 'CHARACTER_MISSED';
+export function characterMissed(character, hangmanState) {
+    hangmanState += 1;
+    if (hangmanState >= 11){
+        debugger;
+        return (dispatch, getState) => {
+            dispatch(gameOver(getState().gameNumber));
+            dispatch(fetchNewWord());
+        }    
+    }
+      
+    return {
+        type: actionTypes.CHARACTER_MISSED,
+        payload: {
+            character,
+            hangmanState
+        }
+    };
+};
+
+actionTypes.GAME_OVER = 'GAME_OVER';
+export function gameOver(gameNumber) {
+    debugger;
+    return {
+        type: actionTypes.GAME_OVER,
+        payload: {
+            gameNumber: gameNumber + 1
+        }
+    };
+};
+
 
 
 //TODO: move to separate file
@@ -51,7 +72,7 @@ function requestingNewWord() {
 
 actionTypes.NEW_WORD_RECEIVED = 'NEW_WORD_RECEIVED';
 function newWordReceived(wordnikJsonResponse) {
-    let word = wordnikJsonResponse.word;
+    let word = wordnikJsonResponse.word.toLowerCase();
     console.log(word);
       
     return {

@@ -8,7 +8,7 @@ const STATE_MAP = ['bar', 'head', 'neck', 'corpus', 'right-arm', 'left-arm', 'ri
 class Hangman extends React.Component{
 
     render() {
-        let className = `hangmanState${this.props.state }`;
+        let className = `hangmanState${this.props.state}`;
         let bodyElements = [];
         for(let i = 0; i <= this.props.state; i++){
             bodyElements.push(<span key={i} className={ 'hangman-' + STATE_MAP[i] }></span>);        
