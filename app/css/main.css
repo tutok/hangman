@@ -1,0 +1,301 @@
+@font-face {
+  font-family: 'AllerDisplay';
+  src: url('../content/fonts/AllerDisplay.ttf') format('truetype');
+  font-weight: normal;
+}
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+.container:before,
+.row:before {
+  content: " ";
+  display: table;
+}
+.container:after,
+.row:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+.column-whole {
+  position: relative;
+  float: left;
+  width: 100%;
+  min-height: 1px;
+}
+.column-left {
+  position: relative;
+  float: left;
+  width: 38%;
+  min-height: 1px;
+}
+.column-right {
+  position: relative;
+  float: left;
+  width: 62%;
+  min-height: 1px;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: AllerDisplay, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #53555D;
+  background-color: #3B4163;
+}
+.hangman-board {
+  position: relative;
+  text-transform: uppercase;
+  width: 920px;
+  margin-top: 145px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px;
+  background-color: #F5F5F5;
+  overflow: hidden;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 80px 40px #2e324a;
+  -moz-box-shadow: 0px 0px 80px 40px #2e324a;
+  box-shadow: 0px 0px 80px 40px #2e324a;
+}
+.hangman-board > .inner {
+  z-index: 10;
+  position: relative;
+}
+.hangman-board .corner-triangle {
+  z-index: 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 286px 286px;
+  border-color: transparent transparent #4D69FA transparent;
+}
+.hangman-body {
+  margin-left: -40px;
+  margin-top: 2px;
+  height: 365px;
+  width: 200px;
+  position: relative;
+}
+.hangman-body .hangman-bar {
+  z-index: 100;
+  display: inline-block;
+  width: 253px;
+  height: 43px;
+  position: absolute;
+  left: -117px;
+  top: 0px;
+  background-image: url("../content/images/bar.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 253px 43px;
+}
+.hangman-body .hangman-head {
+  z-index: 100;
+  display: inline-block;
+  width: 109px;
+  height: 120px;
+  position: absolute;
+  left: 57px;
+  top: 39px;
+  background-image: url("../content/images/head.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 109px 120px;
+}
+.hangman-body .hangman-neck {
+  z-index: 100;
+  display: inline-block;
+  width: 26px;
+  height: 38px;
+  position: absolute;
+  left: 98px;
+  top: 143px;
+  background-image: url("../content/images/neck.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 26px 38px;
+  z-index: 99;
+}
+.hangman-body .hangman-corpus {
+  z-index: 100;
+  display: inline-block;
+  width: 60px;
+  height: 93px;
+  position: absolute;
+  left: 82px;
+  top: 169px;
+  background-image: url("../content/images/corpus.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 60px 93px;
+}
+.hangman-body .hangman-right-arm {
+  z-index: 100;
+  display: inline-block;
+  width: 72px;
+  height: 70px;
+  position: absolute;
+  left: 119px;
+  top: 169px;
+  background-image: url("../content/images/right-arm.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 72px 70px;
+}
+.hangman-body .hangman-left-arm {
+  z-index: 100;
+  display: inline-block;
+  width: 72px;
+  height: 70px;
+  position: absolute;
+  left: 35px;
+  top: 169px;
+  background-image: url("../content/images/left-arm.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 72px 70px;
+}
+.hangman-body .hangman-right-hand {
+  z-index: 100;
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  left: 177px;
+  top: 226px;
+  background-image: url("../content/images/right-hand.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 17px 17px;
+  z-index: 99;
+}
+.hangman-body .hangman-left-hand {
+  z-index: 100;
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  left: 33px;
+  top: 226px;
+  background-image: url("../content/images/left-hand.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 17px 17px;
+  z-index: 99;
+}
+.hangman-body .hangman-right-leg {
+  z-index: 100;
+  display: inline-block;
+  width: 47px;
+  height: 101px;
+  position: absolute;
+  left: 114px;
+  top: 251px;
+  background-image: url("../content/images/right-leg.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 47px 101px;
+}
+.hangman-body .hangman-left-leg {
+  z-index: 100;
+  display: inline-block;
+  width: 47px;
+  height: 101px;
+  position: absolute;
+  left: 64px;
+  top: 251px;
+  background-image: url("../content/images/left-leg.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 47px 101px;
+}
+.hangman-body .hangman-right-foot {
+  z-index: 100;
+  display: inline-block;
+  width: 48px;
+  height: 20px;
+  position: absolute;
+  left: 134px;
+  top: 340px;
+  background-image: url("../content/images/right-foot.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 48px 20px;
+  z-index: 99;
+}
+.hangman-body .hangman-left-foot {
+  z-index: 100;
+  display: inline-block;
+  width: 48px;
+  height: 20px;
+  position: absolute;
+  left: 41px;
+  top: 340px;
+  background-image: url("../content/images/left-foot.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 48px 20px;
+  z-index: 99;
+}
+.missed-characters {
+  margin-left: 16px;
+}
+.missed-characters .header {
+  margin: 0;
+  letter-spacing: 1px;
+}
+.missed-characters .character-list {
+  color: #4D69FA;
+  font-size: 52px;
+  margin: 0px;
+  letter-spacing: 11px;
+}
+.guess-word {
+  color: #F5F5F5;
+  font-size: 45px;
+  margin-top: 30px;
+}
+.guess-word .offset-slot {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 80px;
+  width: 70px;
+  height: 80px;
+  margin-right: 6px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #E6E6E7;
+}
+.guess-word .offset-slot:last-child {
+  margin-right: 0;
+}
+.guess-word .active-slot {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 80px;
+  width: 70px;
+  height: 80px;
+  margin-right: 6px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #53555D;
+}
+.guess-word .active-slot:last-child {
+  margin-right: 0;
+}
+.guess-word p {
+  margin: 0;
+}
