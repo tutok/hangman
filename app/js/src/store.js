@@ -41,35 +41,12 @@ let reducer = function(state, action) {
             return Object.assign({}, state, {
                 word: action.payload.word, 
             }); 
-// 
-//         case AuthorActionsTypes.UPDATE_AUTHOR:
-//             let existingAuthor = state.authors.find(x => x.id === action.payload.author.id);
-//             let existingAuthorIndex = state.authors.indexOf(existingAuthor);
-// 
-//             return Object.assign({}, state, {
-//                 authors: [
-//                     ...state.authors.slice(0, existingAuthorIndex),
-//                     Object.assign({}, state.authors[existingAuthorIndex], {
-//                         firstName: action.payload.author.firstName,
-//                         lastName: action.payload.author.lastName,
-//                     }),
-//                     ...state.authors.slice(existingAuthorIndex + 1)
-//                 ]
-//             });
-// 
-//         case AuthorActionsTypes.DELETE_AUTHOR:
-//             debugger;
-//             let authorToDelete = state.authors.find(x => x.id === action.payload.id);
-//             let authors = state.authors.filter(x => x !== authorToDelete);
-// 
-//             return Object.assign({}, state, {
-//                 authors: [...authors]
-//             });
 
         default:
             return state;
     }
 }
 
-export var store = createStore(reducer,
-                                applyMiddleware(thunkMiddleware));
+export var store = createStore(reducer, applyMiddleware(
+                        thunkMiddleware,
+                        createLogger));
