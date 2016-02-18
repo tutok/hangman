@@ -5,7 +5,7 @@ import thunkMiddleware from 'redux-thunk';
 import { actionTypes } from './actions';
 
 const initialState = {
-    word: 'marcin',
+    word: '',
     guessedCharacters: [],
     missedCharacters: [],
     hangmanState: 0,
@@ -34,6 +34,13 @@ let reducer = function(state, action) {
                     action.payload.character
                 ]
             });
+            
+            
+            
+        case actionTypes.NEW_WORD_RECEIVED:
+            return Object.assign({}, state, {
+                word: action.payload.word, 
+            }); 
 // 
 //         case AuthorActionsTypes.UPDATE_AUTHOR:
 //             let existingAuthor = state.authors.find(x => x.id === action.payload.author.id);
@@ -64,5 +71,5 @@ let reducer = function(state, action) {
     }
 }
 
-export const store = createStore(reducer,
-                                 applyMiddleware(thunkMiddleware));
+export var store = createStore(reducer,
+                                applyMiddleware(thunkMiddleware));
