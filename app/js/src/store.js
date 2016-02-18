@@ -1,8 +1,8 @@
 'use strict';
 
+import { createStore, applyMiddleware } from 'redux';
+import thunkMiddleware from 'redux-thunk';
 import { actionTypes } from './actions';
-import { createStore } from 'redux';
-
 
 const initialState = {
     word: 'marcin',
@@ -64,5 +64,5 @@ let reducer = function(state, action) {
     }
 }
 
-
-export let appStore = createStore(reducer);
+export const store = createStore(reducer,
+                                 applyMiddleware(thunkMiddleware));
