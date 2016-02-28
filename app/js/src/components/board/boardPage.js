@@ -10,15 +10,23 @@ import GuesWord from './guessWord';
 
 class Board extends React.Component{
     
-    componentDidMount(){
-        document.body.addEventListener("keydown", this.handleOnKeydown.bind(this));
+    constructor() {
+        super();
+        
+        this.handleOnKeydown = this.handleOnKeydown.bind(this);
+    }
+    
+    componentDidMount() {
+        document.body.addEventListener("keydown", this.handleOnKeydown);
     }
 
     componentWillUnmount() {
-        document.body.removeEventListener("keydown", this.handleOnKeydown.bind(this));
+        document.body.removeEventListener("keydown", this.handleOnKeydown);
     }
     
-    handleOnKeydown(event) {
+    handleOnKeydown(event) {     
+        debugger;
+        
         let character = String.fromCharCode(event.keyCode);
         if (!character){
             return;
